@@ -1,0 +1,21 @@
+{% load image %}
+{{ object.width }}x{{ object.height }}, {{ object.size }}
+<div><img src="{{ MEDIA_URL }}{{ object.image.name }}" /><p>original image 512x512</p></div>
+<div><img src="{% image object.image 256x256 zoom %}" /><p>zoom 256x256</p></div>
+<div><img src="{% image object.image 256x256 scale %}" /><p>reduc 256x256e</p></div>
+<div><img src="{% image object.image 256x256 stretch %}" /><p>stretch 256x256</p></div>
+<div><img src="{% image object.image 768x768 zoom %}" /><p>zoom 768x768</p></div>
+<div><img src="{% image object.image 768x768 scale %}" /><p>scale 768x768</p></div>
+<div><img src="{% image object.image 768x768 stretch %}" /><p>stretch 768x768</p></div>
+<div><img src="{% image object.image 512x256 zoom %}" /><p>zoom 512x256</p></div>
+<div><img src="{% image object.image 512x256 scale %}" /><p>scale 512x256</p></div>
+<div><img src="{% image object.image 512x256 stretch %}" /><p>stretch 512x256</p></div>
+<div><img src="{% image object.image 256x512 zoom %}" /><p>zoom 256x512</p></div>
+<div><img src="{% image object.image 256x512 scale %}" /><p>scale 256x512</p></div>
+<div><img src="{% image object.image 256x512 stretch %}" /><p>stretch 256x512</p></div>
+<div><img src="{% image object.image 768x512 zoom %}" /><p>zoom 768x512</p></div>
+<div><img src="{% image object.image 768x512 scale %}" /><p>scale 768x512</p></div>
+<div><img src="{% image object.image 768x512 stretch %}" /><p>stretch 768x512</p></div>
+<div><img src="{% image object.image 512x768 zoom %}" /><p>zoom 768x512</p></div>
+<div><img src="{% image object.image 512x768 scale %}" /><p>scale 768x512</p></div>
+<div><img src="{% image object.image 512x768 stretch %}" /><p>stretch 768x512</p></div>

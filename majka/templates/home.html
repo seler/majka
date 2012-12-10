@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block content_header %}
+<!-- SLIDER -->
+<div id="home-slider" class="lof-slidecontent">
+    <div class="preload"><div></div></div>
+    <!-- slider content -->
+    <div class="main-slider-content" >
+        <ul class="sliders-wrap-inner">
+            <li>
+                <img src="/static/img/dummies/slides/01.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/02.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/03.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/04.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/05.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/06.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="/static/img/dummies/slides/07.jpg" title="" alt="alt" />
+                <div class="slider-description">
+                    <h4>Lorem ipsum dolor</h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est...
+                        <a class="link" href="#">Read more </a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- ENDS slider content -->
+    <!-- slider nav -->
+    <div class="navigator-content">
+        <div class="navigator-wrapper">
+            <ul class="navigator-wrap-inner">
+                <li><img src="/static/img/dummies/slides/01_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/02_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/03_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/04_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/05_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/06_thumb.jpg" alt="alt" /></li>
+                <li><img src="/static/img/dummies/slides/07_thumb.jpg" alt="alt" /></li>
+            </ul>
+        </div>
+        <div class="button-next">Next</div>
+        <div class="button-previous">Previous</div>
+        <!-- REMOVED TILL FIXED <div class="button-control"><span>STOP</span></div> -->
+    </div>
+    <!-- slider nav -->
+</div>
+<!-- ENDS SLIDER -->
+{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper cf">
+        <!-- featured -->
+        <div class="home-featured">
+            <ul id="filter-buttons">
+                <li><a href="#" data-filter="*" class="selected">show all</a></li>
+                <li><a href="#" data-filter=".web">web</a></li>
+                <li><a href="#" data-filter=".print">print</a></li>
+                <li><a href="#" data-filter=".design">design</a></li>
+                <li><a href="#" data-filter=".photo">photo</a></li>
+            </ul>
+            <!-- Filter container -->
+            <div id="filter-container" class="cf">
+                <figure class="web">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/01.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html"><h3 class="heading">Pellentesque </h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="print">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/02.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html"><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="design">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/03.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="photo">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/04.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="web photo">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/05.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="web print">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/06.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="photo">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/04.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="web photo">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/05.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+                <figure class="web print">
+                    <a href="project.html" class="thumb"><img src="/static/img/dummies/featured/01.jpg" alt="alt" /></a>
+                    <figcaption>
+                        <a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
+                        Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+                </figure>
+            </div><!-- ENDS Filter container -->
+        </div>
+        <!-- ENDS featured -->
+    </div><!-- ENDS WRAPPER -->
+</div>
+<!-- ENDS MAIN -->
+{% endblock %}
+{% comment %}
+vim: ft=htmldjango ts=4 sw=4 sts=4 sr et
+{% endcomment %}
