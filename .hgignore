@@ -1,2 +1,3 @@
 syntax: glob
 majka/media
+.DS_Store
