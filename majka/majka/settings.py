@@ -133,6 +133,7 @@ BROKER_PORT = 5672
 BROKER_USER = "guest"
 BROKER_PASSWORD = "guest"
 BROKER_VHOST = "/"
+BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 
 CELERYD_CONCURRENCY = 2
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
@@ -146,15 +147,16 @@ CELERY_QUEUES = {
 
 CELERY_DEFAULT_QUEUE = "default"
 
+
 BRICKS_USE_CELERY = True
-FFMPEG = '/usr/bin/avconv'
+FFMPEG = '/usr/bin/ffmpeg'
 GREP = '/bin/grep'
 GREP = '/bin/grep'
 QT_FASTSTART = '/usr/bin/qt-faststart'
 BRICKS_ALLOWED_VIDEO_FORMATS = ('3gp', 'avi', 'flv', 'mkv', 'mov', 'mp4', 'mpeg',
                                 'mpg', 'ogg', 'ogv', 'wmv')
-BRICKS_DEFAULT_CONVERTEDVIDEO_FORMATS = (5, 6, 7)
-BRICKS_DEFAULT_CONVERTEDVIDEO_FORMAT = 6
+BRICKS_DEFAULT_CONVERTEDVIDEO_FORMATS = (1, 2, 3)
+BRICKS_DEFAULT_CONVERTEDVIDEO_FORMAT = 2
 
 BRICKS_VIDEO_ASPECT_RATIO_CHOICES = (
     (1.33, u'4:3'),
@@ -171,10 +173,10 @@ BRICKS_VIDEO_FORMATS = {
                'height': 270},
         1.33: {'width': 360,
                'height': 270},
-        #   'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        #              '-b:v 300k -r 30 -acodec copy -b:a 64k -ac 2 -strict -2 -moov_size 30000 {format_filename}',
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        '-b:v 300k -r 30 -acodec copy -b:a 64k -ac 2 -strict -2 {format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
+                           '-vb 300k -r 30  -acodec libfaac -ab 64k '
+                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
+                           '{format_filename}',
         'fallback': None,
     },
 
@@ -187,10 +189,10 @@ BRICKS_VIDEO_FORMATS = {
                'height': 360},
         1.33: {'width': 478,
                'height': 360},
-        #        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        #                   '-b:v 512k -r 30 -acodec copy -b:a 96k -ac 2 -strict -2 -moov_size 30000 {format_filename}',
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        '-b:v 512k -r 30 -acodec copy -b:a 96k -ac 2 -strict -2 {format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
+                           '-vb 512k -r 30  -acodec libfaac -ab 96k '
+                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
+                           '{format_filename}',
         'fallback': 1,
     },
 
@@ -203,10 +205,10 @@ BRICKS_VIDEO_FORMATS = {
                'height': 576},
         1.33: {'width': 768,
                'height': 576},
-        #        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        #                   '-b:v 1600k -r 30 -acodec copy -b:a 112k -ac 2 -strict -2 -moov_size 30000 {format_filename}',
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vprofile baseline '
-        '-b:v 1600k -r 30 -acodec copy -b:a 112k -ac 2 -strict -2 {format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
+                           '-vb 1600k -r 30  -acodec libfaac -ab 112k '
+                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
+                           '{format_filename}',
         'fallback': 1,
     },
 }
