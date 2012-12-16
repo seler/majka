@@ -3,7 +3,7 @@
 {% block list_obj %}
 <figure class="{% cycle "web" "print" "design" "photo" "web print" %}">
     <a href="{{ obj.get_absolute_url }}" rel="prettyPhoto[{{ object.slug }}]" class="thumb" title="{{ obj.description }}">
-        <img src="{% image obj.image 300x99999 scale %}" alt="{{ obj.title }}" />
+        <img src="{% image obj.image 300x scale %}" alt="{{ obj.title }}" />
     </a>
     <figcaption>
         <h3 class="heading">{{ obj.title }}</h3>
