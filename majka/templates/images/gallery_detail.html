@@ -1,0 +1,23 @@
+{% extends "collections/collection_detail.html" %}
+{% load image %}
+{% block list_obj %}
+<figure class="{% cycle "web" "print" "design" "photo" "web print" %}">
+    <a href="{{ obj.get_absolute_url }}" rel="prettyPhoto[{{ object.slug }}]" class="thumb" title="{{ obj.description }}">
+        <img src="{% image obj.image 300x99999 scale %}" alt="{{ obj.title }}" />
+    </a>
+    <figcaption>
+        <h3 class="heading">{{ obj.title }}</h3>
+        {{ obj.description }}
+    </figcaption>
+</figure>
+{% endblock %}
+{% block extra_body %}
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
+{% endblock %}
+{% comment %}
+vim: ft=htmldjango ts=4 sw=4 sts=4 sr et
+{% endcomment %}

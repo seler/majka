@@ -57,12 +57,12 @@
         <link rel="stylesheet" href="{% static "css/flexslider.css" %}" >
         <script src="{% static "js/jquery.flexslider.js" %}"></script>
     </head>
-    <body class="home">
+    <body class="{% block body_class %}{% endblock %}">
         <!-- HEADER -->
         <header>
             <div class="wrapper cf">
                 <div id="logo">
-                    <a href="index.html"><img  src="{% static "img/logo.png" %}" alt="Simpler"></a>
+                    <a href="/"><img  src="{% static "img/logo.png" %}" alt="Simpler"></a>
                 </div>
                 <!-- nav -->
                 <ul id="nav" class="sf-menu">
@@ -75,7 +75,7 @@
                             <li><a href="page-typography.html">Typography</a></li>
                         </ul>
                     </li>
-                    <li><a href="portfolio.html">WORK</a></li>
+                    <li><a href="/galleries/">GALLERIES</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
                 <div id="combo-holder"></div>
@@ -157,6 +157,8 @@
             </div>
         </footer>
         <!-- ENDS FOOTER -->
+        {% block extra_body %}
+        {% endblock %}
     </body>
 </html>
 {% comment %}

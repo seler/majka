@@ -117,12 +117,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'bricks.core',
-    'bricks.collections',
-    'bricks.media.videos',
-    'bricks.media.images',
     'djcelery',
     'south',
+    'bricks',
+    'bricks.collections',
+    'bricks.images',
+    'bricks.videos',
 )
 
 import djcelery
