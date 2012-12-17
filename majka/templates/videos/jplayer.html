@@ -1,0 +1,22 @@
+{% load static %}
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				m4v: "{% static "video/Big_Buck_Bunny_Trailer.m4v" %}",
+				ogv: "{% static "video/Big_Buck_Bunny_Trailer.ogv" %}",
+				webmv: "{% static "video/Big_Buck_Bunny_Trailer.webm" %}",
+				poster: "{% static "video/Big_Buck_Bunny_Trailer_480x270.png" %}"
+			});
+		},
+		swfPath: "{% static "js" %}",
+		supplied: "webmv, ogv, m4v",
+		size: {
+			width: "{{ video.get_width }}px",
+			height: "{{ video.get_height }}px",
+		}
+	});
+});
+</script>
+<div id="jquery_jplayer_1" class="jp-jplayer" style="width: {{ video.get_width }}px; height: {{ video.get_height }}px;"></div>

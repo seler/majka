@@ -56,6 +56,9 @@
         <!-- flexslider -->
         <link rel="stylesheet" href="{% static "css/flexslider.css" %}" >
         <script src="{% static "js/jquery.flexslider.js" %}"></script>
+
+        {% block extra_head %}
+        {% endblock %}
     </head>
     <body class="{% block body_class %}{% endblock %}">
         <!-- HEADER -->

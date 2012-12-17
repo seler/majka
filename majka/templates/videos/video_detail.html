@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load image static %}
+{% block extra_head %}
+		<!-- jplayer -->
+		<link href="{% static "player-skin/jplayer-black-and-yellow.css" %}" rel="stylesheet" type="text/css" />
+		        {#<link href="http://jplayer.org/latest/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />#}
+		<script type="text/javascript" src="{% static "js/jquery.jplayer.min.js" %}"></script>
+{% endblock %}
+{% block content %}
+<!-- MAIN -->
+<div id="main">
+	<div class="wrapper cf">
+		<!-- portfolio content-->
+		<div id="portfolio-content" class="cf">        	
+			<!-- project pager -->
+			<div class="project-pager cf">
+				<a class="previous-project" href="#">&#8592; Previous project</a>
+				<a class="next-project" href="#">Next project &#8594;</a>
+			</div>
+			<!-- ENDS project pager -->
+			<!-- project box -->
+			<div id="project-box" class="cf">
+				<div class="project-slider">
+					{%  with object.get_converted_video as video %}
+					<div style="margin: 0 auto; width:{{ video.get_width }}px; height:{{ video.get_height }}px;" >
+							{% include "videos/jplayer.html" %}
+					</div>
+					{% endwith %}
+				</div>
+				<div class="info">
+					<p><strong>Client </strong> Mr. Tanaka</p>
+					<p><strong>Date </strong> April 25, 2012</p>
+					<p><a href="http://www.luiszuno.com" class="launch" >Launch Project</a></p>
+				</div>
+				<!-- entry-content -->
+				<div class="entry-content">
+					<h2 class="heading">{{ object.title }}</h2>
+					{% include "videos/jcontrols.html" %}
+					<br />
+					<div>
+						{{ object.description|safe }}
+					</div>
+					<div class="multicolumn">
+					</div>
+				</div>
+				<!-- ENDS entry content -->
+			</div>
+			<!-- ENDS project box -->
+			<!-- related -->
+			<div class="related-projects">
+				<h4 class="related-heading">Related projects</h4>
+				<div class="related-list cf">
+					<figure>
+					<a href="#" class="thumb"><img src="img/dummies/slides/01.jpg" alt="Alt text" /></a>
+					<a href="single.html" class="heading">Pellentesque habitant morbi</a>
+					</figure>
+
+					<figure>
+					<a href="#" class="thumb"><img src="img/dummies/slides/02.jpg" alt="Alt text" /></a>
+					<a href="single.html" class="heading">Pellentesque habitant morbi</a>
+					</figure>
+
+					<figure> 
+					<a href="#" class="thumb"><img src="img/dummies/slides/03.jpg" alt="Alt text" /></a>
+					<a href="single.html" class="heading">Pellentesque habitant morbi</a>
+					</figure>
+
+					<figure>
+					<a href="#" class="thumb"><img src="img/dummies/slides/04.jpg" alt="Alt text" /></a>
+					<a href="single.html" class="heading">Pellentesque habitant morbi</a>
+					</figure>
+
+				</div>
+			</div>
+			<!-- ENDS related -->
+
+
+		</div>
+		<!-- ENDS portfolio content-->
+
+
+	</div><!-- ENDS WRAPPER -->
+</div>
+<div id="main">
+	<div class="wrapper cf">
+		<!-- featured -->
+		<div class="masthead cf">{{ object.title }}</div>
+		<div  id="portfolio-content" class="cf">
+			<ul id="filter-buttons">
+				<li><a href="#" data-filter="*" class="selected">show all</a></li>
+				<li><a href="#" data-filter=".web">web</a></li>
+				<li><a href="#" data-filter=".print">print</a></li>
+				<li><a href="#" data-filter=".design">design</a></li>
+				<li><a href="#" data-filter=".photo">photo</a></li>
+			</ul>
+			<!-- Filter container -->
+			<div id="filter-container" class="cf">
+				{% for obj in object.get_objects %}
+				{% block list_obj %}
+				<figure class="{% cycle "web" "print" "design" "photo" "web print" %}">
+				{% if obj.picture %}
+				<a href="{{ obj.get_absolute_url }}" class="thumb" title="{{ obj.title }}">
+					<img src="{% image obj.picture 300x scale %}" alt="{{ obj.title }}" />
+				</a>
+				{% endif %}
+				<figcaption>
+				<a href="{{ obj.get_absolute_url }}" title="{{ obj.title }}"><h3 class="heading">{{ obj.title }}</h3></a>
+				{{ obj.description }}
+				</figcaption>
+				</figure>
+				{% endblock %}
+				{% endfor %}
+			</div><!-- ENDS Filter container -->
+		</div>
+		<!-- ENDS featured -->
+	</div><!-- ENDS WRAPPER -->
+</div>
+<!-- ENDS MAIN -->
+{% endblock %}
+
+{% comment %}
+vim: ft=htmldjango ts=4 sw=4 sts=4 sr et
+{% endcomment %}
