@@ -80,6 +80,9 @@
                     </li>
                     <li><a href="/galleries/">GALLERIES</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
+                    {% if user.is_staff %}
+                    <li><a href="/admin/">ADMIN</a></li>
+                    {% endif %}
                 </ul>
                 <div id="combo-holder"></div>
                 <!-- ends nav -->

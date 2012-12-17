@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load image static %}
 {% block extra_head %}
+<!-- jplayer -->
+<link href="{% static "player-skin/jplayer-black-and-yellow.css" %}" rel="stylesheet" type="text/css" />
+        {#<link href="http://jplayer.org/latest/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />#}
+<script type="text/javascript" src="{% static "js/jquery.jplayer.min.js" %}"></script>
 {% endblock %}
 {% block content %}
 <!-- MAIN -->

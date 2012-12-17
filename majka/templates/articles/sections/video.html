@@ -1,0 +1,6 @@
+{%  with section.object.get_converted_video as video %}
+<div style="margin: 0 auto; width:{{ video.get_width }}px; height:{{ video.get_height }}px;" >
+    {% include "videos/jplayer.html" %}
+    {% include "videos/jcontrols.html" %}
+</div>
+{% endwith %}
