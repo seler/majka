@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/programmer/dev/projects/majka/majka
+/home/programmer/dev/virtualenvs/majka/bin/python manage.py runserver 0.0.0.0:8000 --settings=majka.pgsqlsettings

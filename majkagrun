@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+LOGFILE=/var/log/gunicorn/majka.log
+LOGDIR=$(dirname $LOGFILE)
+NUM_WORKERS=3
+USER=programmer
+GROUP=programmer
+ADDRESS=127.0.0.1:8801
+cd /home/programmer/dev/projects/majka/majka
+source /home/programmer/dev/virtualenvs/majka/bin/activate
+
+test -d $LOGDIR || mkdir -p $LOGDIR
+exec /home/programmer/dev/virtualenvs/majka/bin/gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS --user=$USER --timeout=300 --group=$GROUP --log-level=debug --log-file=$LOGFILE 2>>$LOGFILE

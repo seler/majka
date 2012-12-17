@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+LOGFILE2=/var/log/gunicorn/majka-celery-stderr.log
+LOGFILE1=/var/log/gunicorn/majka-celery-stdout.log
+
+cd /home/programmer/dev/projects/majka/majka
+source /home/programmer/dev/virtualenvs/majka/bin/activate
+exec /home/programmer/dev/virtualenvs/majka/bin/python manage.py celeryd -E -l info 2>>$LOGFILE2 1>>$LOGFILE1

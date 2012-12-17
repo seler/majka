@@ -10,11 +10,22 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '../../bricks_majka.db3',
     }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'majka',
+        'USER': 'majka',
+        'PASSWORD': '5tgbcde3',
+        'HOST': 'wi.selewonko.com',
+    },
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -118,7 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'djcelery',
-    'south',
+    #'south',
     'bricks',
     'bricks.collections',
     'bricks.images',

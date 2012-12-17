@@ -1,3 +1,4 @@
 syntax: glob
 majka/media
+majka/static
 .DS_Store
