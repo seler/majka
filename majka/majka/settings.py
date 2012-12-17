@@ -146,7 +146,16 @@ CELERY_QUEUES = {
 
 CELERY_DEFAULT_QUEUE = "default"
 
+
+def gettext(s):
+    return s
+
 BRICKS_USE_CELERY = True
+BRICK_COLLECTIONS_TEMPLATE_NAME_CHOICES = (
+    ("collections/collection_detail.html", gettext(u"default")),
+    ("images/gallery_detail.html", gettext(u"gallery")),
+)
+
 FFMPEG = '/usr/bin/avconv'
 GREP = '/bin/grep'
 GREP = '/bin/grep'
