@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'bricks.collections',
     'bricks.images',
     'bricks.videos',
+    'bricks.articles',
 )
 
 import djcelery
@@ -167,6 +168,37 @@ BRICK_COLLECTIONS_TEMPLATE_NAME_CHOICES = (
     ("collections/collection_detail.html", gettext(u"default")),
     ("images/gallery_detail.html", gettext(u"gallery")),
 )
+BRICKS_ARTICLE_SECTION_DEFAULT = 'text'
+BRICKS_ARTICLE_SECTION_TYPES = {
+    'text': {
+        'name': gettext(u"Text"),
+        'template': 'articles/sections/text.html',
+    },
+    'big_image': {
+        'name': gettext(u"Big image"),
+        'template': 'articles/sections/image.html',
+        'app_label': 'images',
+        'model': 'image',
+    },
+    'left_image': {
+        'name': gettext(u"Small image on left"),
+        'template': 'articles/sections/image.html',
+        'app_label': 'images',
+        'model': 'image',
+    },
+    'right_image': {
+        'name': gettext(u"Small image on right"),
+        'template': 'articles/sections/image.html',
+        'app_label': 'images',
+        'model': 'image',
+    },
+    'video': {
+        'name': gettext(u"Video"),
+        'template': 'articles/sections/video.html',
+        'app_label': 'videos',
+        'model': 'video',
+    },
+}
 
 FFMPEG = '/usr/bin/ffmpeg'
 GREP = '/bin/grep'
@@ -192,10 +224,7 @@ BRICKS_VIDEO_FORMATS = {
                'height': 270},
         1.33: {'width': 360,
                'height': 270},
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
-                           '-vb 300k -r 30  -acodec libfaac -ab 64k '
-                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
-                           '{format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline -vb 300k -r 30  -acodec libfaac -ab 64k -flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 {format_filename}',
         'fallback': None,
     },
 
@@ -208,10 +237,7 @@ BRICKS_VIDEO_FORMATS = {
                'height': 360},
         1.33: {'width': 478,
                'height': 360},
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
-                           '-vb 512k -r 30  -acodec libfaac -ab 96k '
-                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
-                           '{format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline -vb 512k -r 30  -acodec libfaac -ab 96k -flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 {format_filename}',
         'fallback': 1,
     },
 
@@ -224,10 +250,7 @@ BRICKS_VIDEO_FORMATS = {
                'height': 576},
         1.33: {'width': 768,
                'height': 576},
-        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline '
-                           '-vb 1600k -r 30  -acodec libfaac -ab 112k '
-                           '-flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 '
-                           '{format_filename}',
+        'command': '{ffmpeg} -y -i {filename} -s {format_width}x{format_height} -vcodec libx264 -vpre baseline -vb 1600k -r 30  -acodec libfaac -ab 112k -flags +loop+mv4 -cmp 256 -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 -flags2 +bpyramid+wpred+mixed_refs+dct8x8 -coder 1 -me_range 16 -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10 -qmax 51 -qdiff 4 {format_filename}',
         'fallback': 1,
     },
 }

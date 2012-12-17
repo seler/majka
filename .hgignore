@@ -1,4 +1,5 @@
 syntax: glob
 majka/media
 majka/static
+.ropeproject
 .DS_Store
