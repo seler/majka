@@ -172,31 +172,31 @@ BRICKS_ARTICLE_SECTION_DEFAULT = 'text'
 BRICKS_ARTICLE_SECTION_TYPES = {
     'text': {
         'name': gettext(u"Text"),
-        'template': 'articles/sections/text.html',
+        'template_name': 'articles/sections/text.html',
     },
     'big_image': {
         'name': gettext(u"Big image"),
-        'template': 'articles/sections/image.html',
+        'template_name': 'articles/sections/big_image.html',
         'app_label': 'images',
-        'model': 'image',
+        'model_name': 'image',
     },
     'left_image': {
         'name': gettext(u"Small image on left"),
-        'template': 'articles/sections/image.html',
+        'template_name': 'articles/sections/left_small_image.html',
         'app_label': 'images',
-        'model': 'image',
+        'model_name': 'image',
     },
     'right_image': {
         'name': gettext(u"Small image on right"),
-        'template': 'articles/sections/image.html',
+        'template_name': 'articles/sections/right_amsll_image.html',
         'app_label': 'images',
-        'model': 'image',
+        'model_name': 'image',
     },
     'video': {
         'name': gettext(u"Video"),
-        'template': 'articles/sections/video.html',
+        'template_name': 'articles/sections/video.html',
         'app_label': 'videos',
-        'model': 'video',
+        'model_name': 'video',
     },
 }
 
