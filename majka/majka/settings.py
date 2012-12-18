@@ -200,18 +200,6 @@ BRICKS_ARTICLE_SECTION_TYPES = {
         'app_label': 'images',
         'model_name': 'image',
     },
-    'left_image': {
-        'name': gettext(u"Small image on left"),
-        'template_name': 'articles/sections/left_small_image.html',
-        'app_label': 'images',
-        'model_name': 'image',
-    },
-    'right_image': {
-        'name': gettext(u"Small image on right"),
-        'template_name': 'articles/sections/right_amsll_image.html',
-        'app_label': 'images',
-        'model_name': 'image',
-    },
     'video': {
         'name': gettext(u"Video"),
         'template_name': 'articles/sections/video.html',

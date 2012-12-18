@@ -24,7 +24,7 @@
             <!-- Standard -->
             <article class="format-standard">
                 <div class="feature-image">
-                    <img src="{% image object.picture 640x zoom %}" alt="{{ object.picture.title }}" />
+                    <img src="{% image object.picture 640x480 zoom %}" alt="{{ object.picture.title }}" />
                 </div>
                 <div class="box cf">
                     <div class="entry-date"><div class="number">{{ object.pub_date|date:"d" }}</div><div class="month">{{ object.pub_date|date:"b"|upper }}</div></div>
