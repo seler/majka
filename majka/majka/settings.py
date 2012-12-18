@@ -130,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'djcelery',
     'south',
+    'tinymce',
     'bricks',
     'bricks.collections',
     'bricks.images',
@@ -158,6 +159,13 @@ CELERY_QUEUES = {
 }
 
 CELERY_DEFAULT_QUEUE = "default"
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
 
 
 def gettext(s):
