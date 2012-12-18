@@ -13,10 +13,10 @@ $(document).ready(function(){
 		swfPath: "{% static "js" %}",
 		supplied: "webmv, ogv, m4v",
 		size: {
-			width: "{{ video.get_width }}px",
-			height: "{{ video.get_height }}px",
+			width: "{{ width }}px",
+			height: "{{ height }}px",
 		}
 	});
 });
 </script>
-<div id="jquery_jplayer_1" class="jp-jplayer" style="width: {{ video.get_width }}px; height: {{ video.get_height }}px;"></div>
+<div id="jquery_jplayer_1" class="jp-jplayer" style="width: {{ width }}px; height: {{ height }}px;"></div>
