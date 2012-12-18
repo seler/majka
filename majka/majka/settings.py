@@ -174,6 +174,18 @@ BRICKS_ARTICLE_SECTION_TYPES = {
         'name': gettext(u"Text"),
         'template_name': 'articles/sections/text.html',
     },
+    'block_divider': {
+        'name': gettext(u"Block divider"),
+        'template_name': 'articles/sections/block_divider.html',
+    },
+    'quote_left': {
+        'name': gettext(u"Quote (left)"),
+        'template_name': 'articles/sections/quote_left.html',
+    },
+    'quote_right': {
+        'name': gettext(u"Quote (right)"),
+        'template_name': 'articles/sections/quote_right.html',
+    },
     'big_image': {
         'name': gettext(u"Big image"),
         'template_name': 'articles/sections/big_image.html',
