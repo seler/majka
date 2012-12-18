@@ -148,7 +148,7 @@ BROKER_PASSWORD = "guest"
 BROKER_VHOST = "/"
 BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 
-CELERYD_CONCURRENCY = 2
+CELERYD_CONCURRENCY = 1
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 CELERY_QUEUES = {
     "default": {
@@ -174,6 +174,7 @@ def gettext(s):
 BRICKS_USE_CELERY = True
 BRICK_COLLECTIONS_TEMPLATE_NAME_CHOICES = (
     ("collections/collection_detail.html", gettext(u"default")),
+    ("collections/collection_blog.html", gettext(u"blog")),
     ("images/gallery_detail.html", gettext(u"gallery")),
 )
 BRICKS_ARTICLE_SECTION_DEFAULT = 'text'
@@ -212,9 +213,9 @@ FFMPEG = '/usr/bin/ffmpeg'
 GREP = '/bin/grep'
 GREP = '/bin/grep'
 QT_FASTSTART = '/usr/bin/qt-faststart'
-BRICKS_ALLOWED_VIDEO_FORMATS = ('3gp', 'avi', 'flv', 'mkv', 'mov', 'mp4', 'mpeg',
-                                'mpg', 'ogg', 'ogv', 'wmv')
-BRICKS_DEFAULT_CONVERTEDVIDEO_FORMATS = (1, 2, 3)
+BRICKS_ALLOWED_VIDEO_FORMATS = ('3gp', 'avi', 'flv', 'mkv', 'mov', 'm4v', 'mpeg',
+                                'mpg', 'ogg', 'ogv', 'wmv', 'mp4')
+BRICKS_DEFAULT_CONVERTEDVIDEO_FORMATS = (1, 2)
 BRICKS_DEFAULT_CONVERTEDVIDEO_FORMAT = 2
 
 BRICKS_VIDEO_ASPECT_RATIO_CHOICES = (
@@ -226,8 +227,8 @@ BRICKS_VIDEO_FORMATS = {
     1: {
         'name': '270p',
         'slug': '270p',
-        'codec': 'mp4',
-        'extension': '.mp4',
+        'codec': 'm4v',
+        'extension': '.m4v',
         1.78: {'width': 480,
                'height': 270},
         1.33: {'width': 360,
@@ -239,8 +240,8 @@ BRICKS_VIDEO_FORMATS = {
     2: {
         'name': '360p',
         'slug': '360p',
-        'codec': 'mp4',
-        'extension': '.mp4',
+        'codec': 'm4v',
+        'extension': '.m4v',
         1.78: {'width': 640,
                'height': 360},
         1.33: {'width': 478,
@@ -252,8 +253,8 @@ BRICKS_VIDEO_FORMATS = {
     3: {
         'name': '576p',
         'slug': '576p',
-        'codec': 'mp4',
-        'extension': '.mp4',
+        'codec': 'm4v',
+        'extension': '.m4v',
         1.78: {'width': 1024,
                'height': 576},
         1.33: {'width': 768,

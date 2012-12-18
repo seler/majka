@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load image static %}
+{% load image static util_tags %}
 {% block extra_head %}
 <!-- jplayer -->
 <link href="{% static "player-skin/jplayer-black-and-yellow.css" %}" rel="stylesheet" type="text/css" />
@@ -22,8 +22,14 @@
             <div id="project-box" class="cf">
                 <div class="project-slider">
                     {%  with object.get_converted_video as video %}
-                    <div style="margin: 0 auto; width:{{ video.get_width }}px; height:{{ video.get_height }}px;" >
-                        {% include "videos/jplayer.html" %}
+                    <div style="margin: 0 auto; width:940px;" >
+    {% with object.get_converted_video as video %}
+    {% with 940 as width %}
+    {% with 940|divide:object.aspect_ratio|intiger as height %}
+    {% include "videos/jplayer.html" %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
                     </div>
                     {% endwith %}
                 </div>

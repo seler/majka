@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load image %}
+{% block content %}
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper cf">
+
+
+        <!-- posts list -->
+        <div id="posts-list" class="cf">
+                    <!-- Standard -->
+                    {% for obj in object.get_objects %}
+                    <article class="format-standard">
+                        <div class="feature-image">
+                            <a href="{{ obj.get_absolute_url }}">
+                                <img src="{% image obj.picture 640x252 zoom %}" alt="{{ obj.picture.title }}" />
+                            </a>
+                        </div>
+                        <div class="box cf">
+                            <div class="entry-date"><div class="number">{{ obj.pub_date|date:"d" }}</div><div class="month">{{ obj.pub_date|date:"b"|upper }}</div></div>
+
+                            <div class="excerpt">
+                                <a href="{{ obj.get_absolute_url }}" class="post-heading" >{{ obj.title }}</a>
+                                {{ obj.description|truncatewords_html:16 }}
+                            </div>
+                            <div class="meta">
+                                <span class="format">Post</span>
+                                <span class="user"><a href="#">By LuisZuno, </a></span>
+                                <span class="comments">16 comments</span>
+                                <span class="tags"><a href="#">red</a>, <a href="#">cyan</a>, <a href="#">white</a>, <a href="#">blue</a></span>
+                            </div>
+                        </div>
+                    </article>
+                     <!-- ENDS  Standard -->
+                     {% endfor %}
+
+                    <!-- page-navigation -->
+                    <div class="page-navigation cf">
+                        <div class="nav-next"><a href="#">&#8592; Older Entries </a></div>
+                        <div class="nav-previous"><a href="#">Newer Entries &#8594;</a></div>
+                    </div>
+                    <!--ENDS page-navigation -->
+
+
+                </div>
+                <!-- ENDS posts list -->
+
+                <!-- sidebar -->
+                <aside id="sidebar">
+
+                    <ul>
+                        <li class="block">
+                            <h4>Text Widget</h4>
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+                        </li>
+
+                        <li class="block">
+                            <h4>Categories</h4>
+                            <ul>
+                                <li class="cat-item"><a href="#" title="title">Film and video<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Print<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Photo and lomo<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Habitant morbi<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Film and video<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Print<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Photo and lomo<span class="post-counter"> (2)</span></a></li>
+                                <li class="cat-item"><a href="#" title="title">Habitant morbi<span class="post-counter"> (2)</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="block">
+                            <h4>Archives</h4>
+                            <ul>
+                                <li class="cat-item"><a href="#" title="title">January</a></li>
+                                <li class="cat-item"><a href="#" title="title">February</a></li>
+                                <li class="cat-item"><a href="#" title="title">March</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </aside>
+                <!-- ENDS sidebar -->
+
+
+            </div><!-- ENDS WRAPPER -->
+        </div>
+        <!-- ENDS MAIN -->
+
+        <!-- MAIN -->
+        <div id="main">
+            <div class="wrapper cf">
+                <!-- featured -->
+                <div class="masthead cf">{{ object.title }}</div>
+                <div  id="portfolio-content" class="cf">
+                    <ul id="filter-buttons">
+                        <li><a href="#" data-filter="*" class="selected">show all</a></li>
+                        <li><a href="#" data-filter=".web">web</a></li>
+                        <li><a href="#" data-filter=".print">print</a></li>
+                        <li><a href="#" data-filter=".design">design</a></li>
+                        <li><a href="#" data-filter=".photo">photo</a></li>
+                    </ul>
+                    <!-- Filter container -->
+                    <div id="filter-container" class="cf">
+                        {% for obj in object.get_objects %}
+                        {% block list_obj %}
+                        <figure class="{% cycle "web" "print" "design" "photo" "web print" %}">
+                            {% if obj.picture %}
+                            <a href="{{ obj.get_absolute_url }}" class="thumb" title="{{ obj.title }}">
+                                <img src="{% image obj.picture 300x scale %}" alt="{{ obj.title }}" />
+                            </a>
+                            {% endif %}
+                            <figcaption>
+                                <a href="{{ obj.get_absolute_url }}" title="{{ obj.title }}"><h3 class="heading">{{ obj.title }}</h3></a>
+                                {{ obj.description }}
+                            </figcaption>
+                        </figure>
+                        {% endblock %}
+                        {% endfor %}
+                    </div><!-- ENDS Filter container -->
+                </div>
+                <!-- ENDS featured -->
+            </div><!-- ENDS WRAPPER -->
+        </div>
+        <!-- ENDS MAIN -->
+        {% endblock %}
+
+        {% comment %}
+        vim: ft=htmldjango ts=4 sw=4 sts=4 sr et
+        {% endcomment %}

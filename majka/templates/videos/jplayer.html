@@ -4,13 +4,13 @@
         $("#jquery_jplayer_1").jPlayer({
             ready: function () {
                 $(this).jPlayer("setMedia", {
-                    m4v: "{% static "video/Big_Buck_Bunny_Trailer.m4v" %}",
-                    mp4: "{{ video.file.url }}",
+                    //m4v: "{% static "video/Big_Buck_Bunny_Trailer.m4v" %}",
+                    m4v: "{{ video.file.url }}",
                     poster: "{{ object.screenshot.url }}"
                 });
             },
             swfPath: "{% static "js" %}",
-            supplied: "m4v, mp4",
+            supplied: "m4v",
             size: {
                 width: "{{ width }}px",
                 height: "{{ height }}px",
