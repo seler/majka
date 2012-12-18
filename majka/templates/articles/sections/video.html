@@ -1,11 +1,13 @@
 {% load util_tags %}
-{%  with section.object.get_converted_video as video %}
 <div style="width: 360px; margin: 0 auto;">
+    {% with section.object as object %}
+    {% with object.get_converted_video as video %}
     {% with 360 as width %}
     {% with 360|divide:section.object.aspect_ratio|intiger as height %}
     {% include "videos/jplayer.html" %}
     {% endwith %}
     {% endwith %}
+    {% endwith %}
+    {% endwith %}
     {% include "videos/jcontrols.html" %}
 </div>
-{% endwith %}
