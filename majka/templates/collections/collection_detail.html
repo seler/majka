@@ -21,12 +21,12 @@
                 <figure class="{% cycle "web" "print" "design" "photo" "web print" %}">
                     {% if obj.picture %}
                     <a href="{{ obj.get_absolute_url }}" class="thumb" title="{{ obj.title }}">
-                        <img src="{% image obj.picture 300x scale %}" alt="{{ obj.title }}" />
+                        <img src="{% image obj.picture 300x zoom %}" alt="{{ obj.title }}" />
                     </a>
                     {% endif %}
                     <figcaption>
                         <a href="{{ obj.get_absolute_url }}" title="{{ obj.title }}"><h3 class="heading">{{ obj.title }}</h3></a>
-                        {{ obj.description }}
+                        {{ obj.description|truncatewords_html:12|safe }}
                     </figcaption>
                 </figure>
                 {% endblock %}
