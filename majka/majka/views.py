@@ -1,7 +1,8 @@
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 
-class HomeView(TemplateView):
-    template_name = "home.html"
+class HomeView(RedirectView):
+    url = "/blog/"
+    permament = False
 
 home = HomeView.as_view()

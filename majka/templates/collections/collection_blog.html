@@ -19,7 +19,7 @@
 
                     <div class="excerpt">
                         <a href="{{ obj.get_absolute_url }}" class="post-heading" >{{ obj.title }}</a>
-                        {{ obj.description|truncatewords_html:16 }}
+                        {{ obj.description|truncatewords_html:16|safe }}
                     </div>
                     <div class="meta">
                         <span class="format">Post</span>
